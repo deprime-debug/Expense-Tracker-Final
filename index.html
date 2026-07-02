@@ -6,7 +6,8 @@
 <title>CacheFlow — Personal Expense Manager</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.4/chart.umd.min.js"></script>
+<!-- ✅ Fixed Chart.js CDN Link below -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   :root{
     --ink:#14213D;
@@ -422,7 +423,6 @@
   }
 
   function renderCharts(){
-  // Wrap everything inside a try block so it won't crash the script
   try {
     const totals = categoryTotals();
     const labels = CATS;
@@ -432,7 +432,6 @@
     const barCanvas = document.getElementById('barChart');
     const pieCanvas = document.getElementById('pieChart');
 
-    // Safe-check if the elements actually exist and the library loaded
     if (!barCanvas || !pieCanvas || typeof Chart === 'undefined') {
       console.warn("Chart.js failed to load or canvas elements are missing.");
       return;
